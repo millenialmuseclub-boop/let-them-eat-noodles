@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { findMatches } from '../lib/sommelier';
 import { getDish, getPlaceLabel } from '../lib/data';
-import { DishTile } from '../components/DishTile';
+import { PhotoFrame } from '../components/PhotoFrame';
 import { useDocumentTitle } from '../lib/useDocumentTitle';
 import type { FindCraving } from '../types/sommelier';
 import type { FlavorTag } from '../types/noodle';
@@ -79,9 +80,9 @@ export function SommelierFindPage() {
           if (!dish) return null;
           return (
             <div key={match.dishId} className="card" style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
-              <div style={{ width: 84, flexShrink: 0 }}>
-                <DishTile dish={dish} />
-              </div>
+              <Link to={`/encyclopedia/${dish.id}`} className="tile" style={{ width: 84, flexShrink: 0 }}>
+                <PhotoFrame subjectId={dish.id} fallbackLabel={dish.name} variant="tile" />
+              </Link>
               <div>
                 <h3 style={{ margin: '0 0 4px' }}>{dish.name}</h3>
                 <p style={{ margin: '0 0 6px', fontSize: 12.5, opacity: 0.7 }}>{getPlaceLabel(dish.place)}</p>

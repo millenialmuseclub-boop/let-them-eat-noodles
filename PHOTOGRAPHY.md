@@ -1,15 +1,30 @@
 # Photography
 
-## Status: Architecture Complete, 0/51 Dishes Photographed (Honest, Deliberate Gap, Carried Through Phase 2)
+## Status: 51/51 Dishes Photographed with Verified, Attributed Wikimedia Commons Photography
 
-The `NoodleImage` type (`src/types/photo.ts`), the `PhotoFrame` component (`src/components/PhotoFrame.tsx`), and the fallback rendering path are fully built and used consistently across Discover, Encyclopedia, Atlas tiles, Workshop, and dish detail pages. `src/data/images.ts` is currently an empty array — every one of the 51 dishes and 25 noodle types renders through the honest fallback (a branded emoji mark with a descriptive `aria-label` ending in "— photography pending"), not a possibly-mismatched or unverifiable photo.
+`src/data/images.ts` now carries 51 `NoodleImage` records — one for every dish in `src/data/dishes.ts` — sourced entirely from Wikimedia Commons, the same primary source used elsewhere in the "Let Them Eat" family. Every single record was individually verified before being added: for each dish, the Commons file page was fetched live and read directly (not guessed from a filename or a search snippet) to confirm three things — that the photo actually depicts the named dish accurately (not a lookalike, not a generic bowl of noodles, not an unrelated regional variant sharing a name), the photographer/uploader's name, and the exact license terms shown on that page. No AI-generated imagery, no scraped restaurant/platform photography, and no dish was left with a substitute photo just to fill a slot — the master spec's rule ("prefer honest fallback over an incorrect photo") held throughout this pass; it simply never had to be invoked, because every one of the 51 dishes had a confidently matching, properly licensed Commons photo available.
 
-This is a deliberate choice, not an oversight, reaffirmed in Phase 2 rather than revisited under time pressure. The master spec is explicit: "prefer honest fallback over an incorrect photo," and forbids AI-generated food imagery, scraped restaurant/platform imagery, and misleading substitute dishes. Sourcing and license-verifying real photography for 51 culturally-specific dishes accurately enough to trust is real editorial work — Cookies did it over 49/52 dishes and Ramen over 13/25 as their own dedicated passes, not folded into a content-saturation pass. Rushing verification now, with the catalog more than tripled in size, would have meant a materially higher risk of a wrong or mismatched photo — explicitly the thing to avoid. This remains the single largest genuine gap in the app, not disguised as complete, and is the top recommended focus for the next phase.
+Noodle-type-level and scene-level photography (`subjectKind: 'noodle-type' | 'scene'`) remains unsourced — this pass focused on dishes per the phase priority, and `getImageFor` / `PhotoFrame` are confirmed (via grep across the codebase) to be the only consumers of `images.ts`, so noodle-type photography can be added later with zero component changes.
 
-## What's Ready to Receive Real Photography
+## License Breakdown
 
-`NoodleImage` requires `creator`, `source` (`wikimedia-commons | unsplash | pexels | other`), `sourceUrl`, and `license` — matching the family's attribution requirements. Adding entries to `src/data/images.ts` lights up real photography with zero component changes; `PhotoFrame` already renders the credit pill (`.photo-credit`) when an image is present.
+Of the 51 sourced photos:
+- 17 are CC BY 2.0
+- 8 are CC BY-SA 2.0
+- 8 are CC BY-SA 4.0
+- 6 are CC BY-SA 3.0
+- 3 are CC BY-SA 2.5
+- 3 are CC0 1.0 (boat-noodles, bibim-guksu, kake-soba)
+- 3 are public domain (bun-cha, bun-thit-nuong, mee-rebus)
+- 2 are CC BY 3.0 (sanuki-udon, hu-tieu)
+- 1 is CC BY 4.0 (beef-chow-fun)
 
-## Recommended Phase 2 Approach
+All attribution (creator name, source URL, exact license string) is recorded per-record in `src/data/images.ts` and rendered by `PhotoFrame`'s credit pill.
 
-Follow Ramen's model: source verified Wikimedia Commons (or a single consistent stock provider, deliberately different from Cake's Unsplash and Ramen's Pexels per the family's source-diversity pattern) images for the most visually unambiguous dishes first, track coverage honestly (e.g. "11/16 photographed"), and leave any dish without a confident match unphotographed rather than force a substitute.
+## What's Ready to Receive More Photography
+
+`NoodleImage` requires `creator`, `source` (`wikimedia-commons | unsplash | pexels | other`), `sourceUrl`, and `license`. Adding entries to `src/data/images.ts` lights up real photography with zero component changes — this was proven out across all 51 dishes in this pass without touching `PhotoFrame.tsx`, `getImageFor`, or the `NoodleImage` type.
+
+## Recommended Next Phase
+
+With dish-level photography complete, the next honest gap is noodle-type-level and scene-level imagery (`src/data/noodleTypes.ts`, 25 entries, currently 0 photographed). The same verification discipline used here — fetch the live Commons file page, confirm the photo matches the specific noodle type before adding it, record the real license — should carry forward rather than being relaxed for expediency.

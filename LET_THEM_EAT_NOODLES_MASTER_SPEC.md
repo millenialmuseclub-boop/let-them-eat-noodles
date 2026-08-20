@@ -1,6 +1,6 @@
 # LET THEM EAT NOODLES — MASTER SPEC
 
-Status: Phase 2 (content saturation) implemented and QA'd, building on the Phase 1 foundation (commit `441881a`). This document describes the actual current state, not aspirational scope. Phase 3 (deeper regional saturation toward the family's ~60-dish ceiling, real photography sourcing, Apple release resources) has **not** been started.
+Status: Phase 2 (content saturation + recovery/completion pass) implemented and QA'd, building on the Phase 1 foundation (commit `441881a`). All 51 canonical dishes are complete: recipe, noodle-type relationship, geography, Sommelier attributes, and now real verified photography (51/51, up from an honest 0/51 gap — see `PHOTOGRAPHY.md`). This document describes the actual current state, not aspirational scope. Phase 3 (deeper regional saturation toward the family's ~60-dish ceiling, noodle-type/scene photography, Apple release resources) has **not** been started.
 
 ## Product Thesis
 

@@ -495,7 +495,10 @@ textarea:focus-visible,
 .hero-bleed__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(28, 33, 29, 0) 40%, rgba(28, 33, 29, 0.78) 100%);
+  /* Starts darkening earlier (15% vs. the previous 40%) so the kicker label stays legible
+     against real photography of varying brightness, not just the flat gradient fallback it was
+     tuned against originally. */
+  background: linear-gradient(180deg, rgba(28, 33, 29, 0) 15%, rgba(28, 33, 29, 0.55) 55%, rgba(28, 33, 29, 0.82) 100%);
 }
 
 .hero-bleed__content {
@@ -509,6 +512,10 @@ textarea:focus-visible,
 
 .hero-bleed__content h1 {
   color: #fdf9ee;
+}
+
+.hero-bleed__content .eyebrow {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
 }
 
 .photo-credit {
@@ -531,6 +538,7 @@ textarea:focus-visible,
 }
 
 .tile {
+  display: block;
   border-radius: 16px;
   overflow: hidden;
   position: relative;

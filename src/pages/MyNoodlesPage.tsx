@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useMyNoodles } from '../lib/useMyNoodles';
 import { getDish } from '../lib/data';
 import { DishTile } from '../components/DishTile';
@@ -13,6 +14,7 @@ const SECTIONS: { state: MyNoodlesState; label: string }[] = [
 export function MyNoodlesPage() {
   useDocumentTitle('My Noodles');
   const entries = useMyNoodles();
+  const isEmpty = entries.length === 0;
 
   return (
     <div className="page-container">
@@ -22,26 +24,35 @@ export function MyNoodlesPage() {
         Local and private — nothing here leaves your device. No account required.
       </p>
 
-      {SECTIONS.map((section) => {
-        const sectionEntries = entries.filter((e) => e.states.includes(section.state));
-        return (
-          <div key={section.state}>
-            <div className="section-heading">
-              <h2>{section.label}</h2>
-            </div>
-            {sectionEntries.length === 0 ? (
-              <p style={{ opacity: 0.6, fontSize: 14 }}>Nothing here yet.</p>
-            ) : (
+      {isEmpty ? (
+        <div className="card" style={{ textAlign: 'center', padding: '32px 24px' }}>
+          <p className="prose" style={{ margin: '0 0 16px' }}>
+            Your shelf is empty. Save a dish you want to try, have made, or love, and it'll show
+            up here.
+          </p>
+          <Link to="/encyclopedia" className="btn btn-primary">
+            Browse the Encyclopedia
+          </Link>
+        </div>
+      ) : (
+        SECTIONS.map((section) => {
+          const sectionEntries = entries.filter((e) => e.states.includes(section.state));
+          if (sectionEntries.length === 0) return null;
+          return (
+            <div key={section.state}>
+              <div className="section-heading">
+                <h2>{section.label}</h2>
+              </div>
               <div className="grid">
                 {sectionEntries.map((entry) => {
                   const dish = getDish(entry.dishId);
                   return dish ? <DishTile key={entry.dishId} dish={dish} /> : null;
                 })}
               </div>
-            )}
-          </div>
-        );
-      })}
+            </div>
+          );
+        })
+      )}
     </div>
   );
 }
