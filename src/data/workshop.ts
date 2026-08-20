@@ -248,4 +248,52 @@ export const troubleshooterProblems: TroubleshooterProblem[] = [
       { cause: 'Overcrowded pan', correction: 'Cook in smaller batches so noodles contact the hot surface directly instead of steaming each other.' },
     ],
   },
+  {
+    id: 'noodles-clumping-in-wok',
+    problem: 'Noodles clump together in the wok',
+    diagnosticQuestions: ['Were the noodles separated before they went in? Were they added all at once cold from the fridge?'],
+    causes: [
+      { cause: 'Noodles not separated before cooking', correction: 'Gently loosen fresh noodles by hand (warming briefly if stiff) before they hit the pan — noodles that go in already stuck together stay stuck together.' },
+      { cause: 'Too little oil for the batch size', correction: 'Add a touch more oil and toss immediately on contact rather than letting the noodles sit in a dry pan.' },
+    ],
+    relatedLessonSlug: 'stir-fry-technique',
+  },
+  {
+    id: 'stir-fry-watery',
+    problem: 'Stir-fry turns watery instead of glossy',
+    diagnosticQuestions: ['Were vegetables added before or after searing the protein? Was the pan crowded?'],
+    causes: [
+      { cause: 'Vegetables released water into an already-crowded pan', correction: 'Sear protein and aromatics first in a hot, uncrowded pan, then add quick-cooking vegetables last so their released water flashes off instead of pooling.' },
+      { cause: 'Sauce added too early and simmered instead of tossed', correction: 'Add sauce at the very end and toss hard for a short burst of high heat, not a simmer.' },
+    ],
+    relatedLessonSlug: 'stir-fry-technique',
+  },
+  {
+    id: 'sauce-too-salty',
+    problem: 'Sauce or broth tastes too salty',
+    diagnosticQuestions: ['Did the recipe call for both soy sauce and fish sauce or shrimp paste? Was the sauce reduced further after salting?'],
+    causes: [
+      { cause: 'Over-reduced after seasoning', correction: 'Season fully-reduced sauces last, not before a further simmer — salt concentrates as liquid cooks off.' },
+      { cause: 'Stacked salty ingredients without tasting between additions', correction: 'Add one salty ingredient (soy sauce, fish sauce, shrimp paste) at a time, tasting before the next.' },
+    ],
+    relatedLessonSlug: 'broth-sauce-lab',
+  },
+  {
+    id: 'dish-feels-greasy',
+    problem: 'Finished dish feels greasy rather than rich',
+    diagnosticQuestions: ['Was excess oil drained or skimmed at any point? Was the pan too hot for the amount of oil used?'],
+    causes: [
+      { cause: 'Too much oil for the pan size', correction: 'Use just enough oil to coat the pan thinly for stir-fries — noodle dishes rely on heat and technique for flavor, not a deep oil pool.' },
+      { cause: 'Broth fat never skimmed', correction: 'Skim rendered fat off the surface of a finished broth before serving, or use a fat separator.' },
+    ],
+  },
+  {
+    id: 'broth-overwhelms-noodles',
+    problem: 'Broth overwhelms the noodles instead of complementing them',
+    diagnosticQuestions: ['Is the broth very rich or spicy relative to a delicate noodle like rice vermicelli or somen?'],
+    causes: [
+      { cause: 'Mismatched richness between broth and noodle', correction: 'Pair delicate noodles (thin rice vermicelli, somen) with lighter broths, and reserve bold, rich broths (curry laksa, khao soi, boat noodles) for sturdier noodles that can stand up to them.' },
+    ],
+    relatedLessonSlug: 'broth-sauce-lab',
+  },
 ];

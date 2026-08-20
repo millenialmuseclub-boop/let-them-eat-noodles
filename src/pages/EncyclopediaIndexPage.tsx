@@ -11,13 +11,20 @@ export function EncyclopediaIndexPage() {
   useDocumentTitle('Encyclopedia');
   const [countryFilter, setCountryFilter] = useState<string | null>(null);
   const [prepFilter, setPrepFilter] = useState<PreparationStyle | null>(null);
+  const [letterFilter, setLetterFilter] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     return dishes
       .filter((d) => !countryFilter || d.place.countryId === countryFilter)
       .filter((d) => !prepFilter || d.preparationStyle === prepFilter)
+      .filter((d) => !letterFilter || d.name[0].toUpperCase() === letterFilter)
       .sort((a, b) => a.name.localeCompare(b.name));
-  }, [countryFilter, prepFilter]);
+  }, [countryFilter, prepFilter, letterFilter]);
+
+  const availableLetters = useMemo(
+    () => Array.from(new Set(dishes.map((d) => d.name[0].toUpperCase()))).sort(),
+    [],
+  );
 
   return (
     <div className="page-container">
@@ -44,6 +51,27 @@ export function EncyclopediaIndexPage() {
             onClick={() => setCountryFilter(c.id === countryFilter ? null : c.id)}
           >
             {c.name}
+          </button>
+        ))}
+      </div>
+
+      <div className="section-heading">
+        <h2>Browse A–Z</h2>
+      </div>
+      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }} role="group" aria-label="Filter by first letter">
+        <button type="button" className="chip" aria-pressed={letterFilter === null} onClick={() => setLetterFilter(null)}>
+          All
+        </button>
+        {availableLetters.map((letter) => (
+          <button
+            key={letter}
+            type="button"
+            className="chip"
+            aria-pressed={letterFilter === letter}
+            onClick={() => setLetterFilter(letter === letterFilter ? null : letter)}
+            style={{ minWidth: 36, padding: '6px 0' }}
+          >
+            {letter}
           </button>
         ))}
       </div>

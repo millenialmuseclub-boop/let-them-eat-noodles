@@ -12,7 +12,7 @@ EDITORIAL ENTITY → PRODUCT → MERCHANT OFFER → AFFILIATE ROUTE
 
 Per the master spec: AFFILIATE MASTER → FILTER FOR NOODLES RELEVANCE → REUSE VERIFIED PRODUCTS → IDENTIFY GENUINE GAPS → (user sources new links, not done this pass) → UPDATE MASTER → USE CONTEXTUALLY.
 
-`LET_THEM_EAT_AFFILIATE_MASTER.md` (living in `Let Them Eat Ramen/`) was read before sourcing anything. All 24 products in `src/data/products.ts` are copied from Ramen's `src/data/products.json` (`noodle-tools`, `broth-essentials`, and a slice of `bowls-tableware`) with URLs preserved byte-for-byte — none regenerated, normalized, or fabricated. See `NOODLES_COMMERCE_GAP_ANALYSIS.md` for the full accounting.
+`LET_THEM_EAT_AFFILIATE_MASTER.md` (living in `Let Them Eat Ramen/`) was read before sourcing anything. All **47 products** in `src/data/products.ts` are copied from Ramen's `src/data/products.json` (`noodle-tools`, `broth-essentials`, and `bowls-tableware`) with URLs preserved byte-for-byte — none regenerated, normalized, or fabricated. Phase 1 reused 24; Phase 2 pulled in the remaining 19 `bowls-tableware` items and 4 `broth-essentials` items (16-Quart Stockpot, Large Enameled Dutch Oven, Fine-Mesh Chinois, Fat Separator) that Phase 1's gap analysis had flagged as relevant-but-not-yet-reused. See `NOODLES_COMMERCE_GAP_ANALYSIS.md` for the full accounting.
 
 ## Curated Kitchen
 

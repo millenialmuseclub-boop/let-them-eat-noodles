@@ -16,12 +16,14 @@ Target: WCAG 2.2 AA, built in from Phase 1, not deferred to release QA.
 - `PhotoFrame` fallback renders `role="img"` with a descriptive `aria-label` even with no image, so screen reader users get the same information sighted users get from the emoji + surrounding heading
 - Touch targets: bottom-tab items and chips are ≥44px tall
 
-## Verified This Pass
+## Verified This Pass (re-verified in Phase 2 against the expanded 51-dish catalog)
 
-- **Zero default-blue/purple links**: automated check on the Atlas page found 0/23 rendered links matching browser-default colors (`rgb(0,0,238)` / `rgb(85,26,139)`)
-- **Zero console errors** across all 15 routes exercised (Discover, Encyclopedia index, Noodle Type index + detail, Dish detail, Atlas, Workshop, Lab, Troubleshooter, Sommelier, Twirl index + story, My Noodles, Curated Kitchen, 404)
-- **Zero horizontal overflow** at 375px, 390px, and 430px viewport widths, checked via `document.documentElement.scrollWidth === clientWidth` (Cookies' verification method, not visual inspection alone)
-- Persistence (My Noodles tri-state save) verified end-to-end: toggling a state writes to `localStorage`, `aria-pressed` updates, and the entry appears in the correct My Noodles section on reload
+- **Zero default-blue/purple links**: automated checks on the Atlas and Troubleshooter pages found 0 rendered links matching browser-default colors (`rgb(0,0,238)` / `rgb(85,26,139)`) — Troubleshooter re-checked in Phase 2 after adding 5 new problems
+- **Zero console errors** across every major route re-exercised after the catalog expansion (Discover, Encyclopedia index with new A–Z filter, Noodle Type detail, Dish detail on multiple Phase 2 dishes, Atlas, Troubleshooter, Curated Kitchen)
+- **Zero horizontal overflow** at 375px, 390px, and 430px viewport widths, checked via `document.documentElement.scrollWidth === clientWidth` (Cookies' verification method, not visual inspection alone), re-confirmed on Phase 2 pages including the 51-tile Encyclopedia grid
+- Persistence (My Noodles tri-state save) verified end-to-end in Phase 1: toggling a state writes to `localStorage`, `aria-pressed` updates, and the entry appears in the correct My Noodles section on reload
+- Encyclopedia A–Z filter (new in Phase 2) verified functionally: filtering to "B" correctly returns exactly the 8 dishes starting with B out of 51
+- Noodle-type relationship pages verified to resolve correctly for Phase-2-added shared types (e.g. Cantonese Egg Noodle correctly lists Chow Mein, Wonton Noodles, and Pancit Canton)
 
 ## Not Yet Done
 

@@ -12,17 +12,21 @@ This prevents the mistake the master spec calls out explicitly: modeling every e
 
 ## Entities
 
-| Entity | File | Count in Phase 1 |
+| Entity | File | Count (Phase 2) |
 |---|---|---|
-| `NoodleType` | `src/data/noodleTypes.ts` | 14 |
-| `NoodleDish` | `src/data/dishes.ts` | 16 |
+| `NoodleType` | `src/data/noodleTypes.ts` | 25 (14 from Phase 1 + 11 added in Phase 2) |
+| `NoodleDish` | `src/data/dishes.ts` | 51 (16 from Phase 1 + 35 added in Phase 2) |
 | `Technique` | `src/data/techniques.ts` | 7 (`stir-fried` handled as a Workshop lab, not a `Technique` record, since it's a cooking method rather than a noodle-forming technique) |
-| `Region` / `Country` / `Place` | `src/data/geo.ts` | 2 / 8 / 16 |
-| `Recipe` | `src/data/recipes.ts` | 16 (1:1 with dishes) |
+| `Region` / `Country` / `Place` | `src/data/geo.ts` | 2 / 8 / 26 |
+| `Recipe` | `src/data/recipes.ts` | 51 (1:1 with dishes) |
+
+## New Type-Sharing Examples Proven in Phase 2
+
+Phase 2 substantially strengthened the core relationship model with more real cross-cultural reuse: **Cantonese Egg Noodle** is now shared by Chow Mein, Wonton Noodles, and Pancit Canton (China/Hong Kong and the Philippines); **Shahe Fen** is shared by Beef Chow Fun and Char Kway Teow (China/Hong Kong and Malaysia, the same wide rice noodle format under different regional names); **Laksa Noodle** is shared by Curry Laksa and Assam Laksa; **Somen** is shared across Japan's Somen and Korea's Bibim Guksu, Janchi Guksu, and Kongguksu (a closely related but independently developed product, documented with careful non-identical-origin language). **Rice Vermicelli** now connects five dishes across four countries (Bún Chả, Mohinga, Pancit Bihon from Phase 1, plus Bún Thịt Nướng and Pancit Palabok added in Phase 2).
 
 ## Completeness Rule
 
-Every seeded `NoodleDish` in Phase 1 has: canonical id, name, local name/romanization where applicable, place (region→country→city), noodle-type relationship, preparation style, primary technique(s), cultural context, historical context (with careful, hedged origin language), flavor profile (5 dimensions), flavor tags, broth/sauce relationship, related dishes, a 1:1 structured recipe, and source metadata. Verified by `scripts/check-data-integrity.mjs` — no orphan noodle types, no dangling `relatedDishIds`, no dish without a recipe or vice versa.
+Every dish in the current 51-dish catalog has: canonical id, name, local name/romanization where applicable, place (region→country→city), noodle-type relationship, preparation style, primary technique(s), cultural context, historical context (with careful, hedged origin language — Phase 2 introduced phrases like "a common preparation," "widely told," "generally credited" for dishes with contested or legend-based histories, e.g. Crossing-the-Bridge Noodles), flavor profile (5 dimensions), flavor tags, broth/sauce relationship, related dishes, a 1:1 structured recipe, and source metadata. Verified by `scripts/check-data-integrity.mjs` — no orphan noodle types, no dangling `relatedDishIds`, no dish without a recipe or vice versa. Re-run after Phase 2: 51/51 dishes, 25/25 noodle types, 51/51 recipes, zero duplicates, zero orphans.
 
 ## What's Deliberately Not Modeled Yet
 

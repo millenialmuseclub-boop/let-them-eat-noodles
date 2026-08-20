@@ -69,6 +69,24 @@ export function MainPage() {
       <hr className="divider" />
 
       <div className="section-heading">
+        <h2>What Kind of Noodle Are You Craving?</h2>
+      </div>
+      <Link to="/sommelier" className="card" style={{ display: 'block', textDecoration: 'none' }}>
+        <span className="eyebrow" style={{ marginBottom: 4 }}>Sommelier</span>
+        <p style={{ margin: 0 }}>
+          Brothy or dry, delicate or bold, mild or spicy — tell us what you're after and we'll point you to a real dish, with the reasons why it fits.
+        </p>
+      </Link>
+
+      <div className="section-heading">
+        <h2>From Twirl</h2>
+        <Link to="/twirl">Read the magazine →</Link>
+      </div>
+      <p className="prose">Vocabulary, technique stories, and the culture behind the bowl — why some noodles get slurped, why soba is served cold, and more.</p>
+
+      <hr className="divider" />
+
+      <div className="section-heading">
         <h2>Curated Kitchen</h2>
         <Link to="/curated-kitchen">Shop the essentials →</Link>
       </div>

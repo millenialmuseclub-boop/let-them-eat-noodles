@@ -33,4 +33,4 @@ Start with `LET_THEM_EAT_NOODLES_MASTER_SPEC.md`. See also `NOODLE_DOMAIN_MODEL.
 
 ## Status
 
-Phase 1 foundation complete: 16 canonical dishes, all with complete records and structured recipes. Photography is architected but not yet sourced (honest fallback everywhere — see `PHOTOGRAPHY.md`). Not yet started: the 50–60 dish saturation pass, Sommelier CREATE/PAIR, any Apple release resources.
+Phase 2 (content saturation) complete, building on the Phase 1 foundation: **51 canonical dishes** (up from 16), **25 noodle types**, **51 structured recipes**, **16-problem Troubleshooter**, **47 reused affiliate products**. Photography is architected but not yet sourced (honest fallback everywhere — see `PHOTOGRAPHY.md`). Not yet started: pushing further toward the family's ~60-dish ceiling, Sommelier CREATE/PAIR, real photography sourcing, any Apple release resources.
