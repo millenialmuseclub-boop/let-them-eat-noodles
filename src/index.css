@@ -397,13 +397,13 @@ textarea:focus-visible,
 
 .btn-secondary {
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--brass-strong);
   color: var(--text);
 }
 
 .btn-secondary:hover {
   text-decoration: none;
-  border-color: var(--jade);
+  background: rgba(176, 141, 79, 0.1);
 }
 
 .chip {
@@ -529,6 +529,26 @@ textarea:focus-visible,
   padding: 4px 9px;
   border-radius: 999px;
   backdrop-filter: blur(3px);
+}
+
+/* Medium editorial photo tier — between a .tile (~150px catalog thumbnail) and a full .hero-bleed
+   (page-top, bleeds past the container gutter). For a single flagship spot (e.g. a Workshop lab
+   header) that deserves more visual weight than a tile without going full-bleed hero. 16:9 keeps
+   it landscape/editorial rather than portrait like .tile. */
+.photo-medium {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--bg-ceramic), var(--border));
+  margin: 16px 0 4px;
+}
+
+.photo-medium img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .grid {

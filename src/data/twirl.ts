@@ -22,6 +22,9 @@ export const twirlStories: TwirlStory[] = [
       'Not every springy wheat noodle uses this trick — Sanuki udon gets its dense chew mostly from a firm, low-hydration dough and long kneading, no alkaline water involved. Springiness has more than one cause, and it\'s worth knowing which one is at work in a given noodle.',
     ],
     relatedNoodleTypeIds: ['lamian'],
+    // Lanzhou lamian is the exact hand-pulled, kansui-treated noodle named in the body text —
+    // a genuinely accurate lead image for this story, not a generic stand-in.
+    relatedDishIds: ['lanzhou-lamian'],
   },
   {
     slug: 'why-soba-is-served-cold',
@@ -45,6 +48,10 @@ export const twirlStories: TwirlStory[] = [
       'This is also why a rice noodle dish and a wheat noodle dish built around the exact same sauce or broth can still feel completely different to eat: the noodle\'s own textural contribution — springy and elastic versus soft and slippery — is doing as much work as the seasoning.',
     ],
     relatedNoodleTypeIds: ['banh-pho', 'lamian'],
+    // Phở bò is a photographed banh-pho (rice) dish and lamian is the wheat counterpart used
+    // elsewhere in the piece — an accurate rice-vs-wheat pairing, with the rice noodle leading
+    // since it's the side of the contrast the story spends the most time explaining.
+    relatedDishIds: ['pho-bo', 'lanzhou-lamian'],
   },
   {
     slug: 'why-wok-hei-matters',

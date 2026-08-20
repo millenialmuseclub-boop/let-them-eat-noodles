@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { labs } from '../data/workshop';
 import { getDish, getNoodleType } from '../lib/data';
+import { getImageFor } from '../data/images';
 import { ContextualCuratedKitchen } from '../components/ContextualCuratedKitchen';
 import { useDocumentTitle } from '../lib/useDocumentTitle';
 
@@ -18,16 +19,27 @@ export function LabPage() {
     return (
       <div className="page-container">
         <p>Lab not found.</p>
-        <Link to="/workshop">← Back to Workshop</Link>
+        <Link to="/workshop" className="btn btn-secondary" style={{ marginTop: 12 }}>← Back to Workshop</Link>
       </div>
     );
   }
+
+  // Only the labs with a photographed related dish get the medium editorial photo — an honest
+  // typographic-only header otherwise, rather than forcing an unrelated image.
+  const featuredDishId = lab.relatedDishIds?.[0];
+  const featuredImage = featuredDishId ? getImageFor(featuredDishId) : undefined;
 
   return (
     <div className="page-container">
       <span className="eyebrow">Workshop Lab</span>
       <h1>{lab.title}</h1>
       <p className="prose" style={{ maxWidth: 560 }}>{lab.summary}</p>
+
+      {featuredImage && (
+        <figure className="photo-medium">
+          <img src={featuredImage.src} alt={featuredImage.alt} />
+        </figure>
+      )}
 
       {lab.variables.map((variable) => {
         const selectedOptionId = selected[variable.id] ?? variable.options[0].id;
