@@ -44,7 +44,7 @@ export function MainPage() {
       </div>
       <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
         {regions.map((region) => (
-          <Link key={region.id} to="/atlas" className="chip">
+          <Link key={region.id} to="/atlas" className="chip chip-brass">
             {region.name}
           </Link>
         ))}
@@ -52,16 +52,13 @@ export function MainPage() {
 
       <div className="section-heading">
         <h2>Featured Traditions</h2>
+        <Link to="/encyclopedia/noodle-types">Browse all →</Link>
       </div>
-      <div className="grid">
+      <div className="rail-list">
         {noodleTypes.slice(0, 6).map((type) => (
-          <Link key={type.id} to={`/encyclopedia/type/${type.id}`} className="tile">
-            <PhotoFrame subjectId={type.id} fallbackLabel={type.name} variant="tile" fallbackEmoji="🍥" />
-            <div className="tile__scrim" />
-            <div className="tile__label">
-              <span className="kicker">{type.base.replace('-', ' ')}</span>
-              <strong>{type.name}</strong>
-            </div>
+          <Link key={type.id} to={`/encyclopedia/type/${type.id}`} className="rail-item">
+            <span className="rail-item__name">{type.name}</span>
+            <span className="rail-item__meta">{type.base.replace('-', ' ')} · {type.form.replace('-', ' ')}</span>
           </Link>
         ))}
       </div>

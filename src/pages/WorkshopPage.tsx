@@ -28,10 +28,10 @@ export function WorkshopPage() {
             <div className="section-heading">
               <h2>{group.title}</h2>
             </div>
-            <div className="grid">
+            <div className="lab-list">
               {groupLabs.map((lab) => (
-                <Link key={lab.slug} to={`/workshop/lab/${lab.slug}`} className="card" style={{ display: 'block' }}>
-                  <h3>{lab.title}</h3>
+                <Link key={lab.slug} to={`/workshop/lab/${lab.slug}`} className="lab-item">
+                  <h3 style={{ marginBottom: 3 }}>{lab.title}</h3>
                   <p style={{ fontSize: 13.5, opacity: 0.75, margin: 0 }}>{lab.summary}</p>
                 </Link>
               ))}

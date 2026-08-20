@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { twirlStories, vocabulary } from '../data/twirl';
+import { getImageFor } from '../data/images';
 import { useDocumentTitle } from '../lib/useDocumentTitle';
 
 export function TwirlPage() {
@@ -15,13 +16,25 @@ export function TwirlPage() {
       <div className="section-heading">
         <h2>Editorial Stories</h2>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-        {twirlStories.map((story) => (
-          <Link key={story.slug} to={`/twirl/${story.slug}`} className="card" style={{ display: 'block' }}>
-            <h3 style={{ marginBottom: 4 }}>{story.title}</h3>
-            <p style={{ margin: 0, fontSize: 14, opacity: 0.75 }}>{story.dek}</p>
-          </Link>
-        ))}
+      <div className="story-list">
+        {twirlStories.map((story, i) => {
+          const relatedDishId = story.relatedDishIds?.[0];
+          const image = relatedDishId ? getImageFor(relatedDishId) : undefined;
+          return (
+            <Link key={story.slug} to={`/twirl/${story.slug}`} className="story-item">
+              <span className="story-item__index">{String(i + 1).padStart(2, '0')}</span>
+              {image && (
+                <span className="story-item__media">
+                  <img src={image.src} alt="" />
+                </span>
+              )}
+              <span className="story-item__body">
+                <h3 style={{ marginBottom: 4 }}>{story.title}</h3>
+                <p style={{ margin: 0, fontSize: 14, opacity: 0.75 }}>{story.dek}</p>
+              </span>
+            </Link>
+          );
+        })}
       </div>
 
       <div className="section-heading">

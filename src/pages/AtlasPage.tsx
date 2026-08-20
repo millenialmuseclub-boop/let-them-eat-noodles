@@ -40,7 +40,7 @@ export function AtlasPage() {
                       ))}
                       <div className="atlas-place-list">
                         {countryDishes.map((dish) => (
-                          <Link key={dish.id} to={`/encyclopedia/${dish.id}`} className="chip">
+                          <Link key={dish.id} to={`/encyclopedia/${dish.id}`} className="chip chip-brass">
                             {dish.name}
                           </Link>
                         ))}
