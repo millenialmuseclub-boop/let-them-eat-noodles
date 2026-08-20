@@ -29,3 +29,22 @@ Typography: Fraunces (editorial serif, Google Fonts) for headings, `system-ui` s
 ## What Wasn't Reused Verbatim
 
 The specific hue family (celadon jade / lacquer red / brushed brass vs. Cookies' raspberry/plum/champagne) is Noodles' own — the family pattern is "one bg, one ink, one strong accent, one secondary accent," not a shared literal palette.
+
+## Family visual refinement pass (2026-08-20)
+
+Jade was doing ~90% of the app's functional color work; lacquer and brass existed only as two
+decorative chip variants. This pass distributed color more intentionally without changing any
+token's hue:
+
+- **Lacquer** now marks Twirl's story index numerals (`01`–`06`), giving the signature editorial
+  section its own accent identity distinct from jade-led Encyclopedia/Atlas browsing.
+- **Brass** extended from Atlas dish chips and MainPage region chips into a `.btn-secondary`
+  variant (border + hover in `--brass-strong`), applied to dead-end/not-found states (`LabPage`'s
+  "lab not found," `NotFoundPage`).
+- Added a `.rail-list`/`.story-list`/`.lab-list` divider-based utility set (no border/shadow),
+  replacing bordered card grids on MainPage's Featured Traditions, Twirl's story list, and
+  Workshop's lab grid — the same restrained-card principle Cake/Ramen already apply.
+
+Dark-mode coverage for `--lacquer`/`--brass-strong` in these new contexts was verified against the
+existing `prefers-color-scheme: dark` block — no new tokens were needed, both already had dark
+variants defined from the original palette pass.

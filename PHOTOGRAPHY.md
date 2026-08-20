@@ -28,3 +28,14 @@ All attribution (creator name, source URL, exact license string) is recorded per
 ## Recommended Next Phase
 
 With dish-level photography complete, the next honest gap is noodle-type-level and scene-level imagery (`src/data/noodleTypes.ts`, 25 entries, currently 0 photographed). The same verification discipline used here — fetch the live Commons file page, confirm the photo matches the specific noodle type before adding it, record the real license — should carry forward rather than being relaxed for expediency.
+
+## Family visual refinement pass (2026-08-20)
+
+No new photography sourced this pass — still 51/51 dishes, 0/25 noodle types. Two reuse fixes closed real gaps against existing dish photography:
+
+- **MainPage's "Featured Traditions" section** rendered `noodleTypes.slice(0, 6)` with a guaranteed emoji fallback (0/25 noodle types photographed) — the only place in the app where a broken-feeling fallback was reachable on first load. Replaced with a typographic rail (name + base/form + a link to the full noodle-type index) so the homepage never shows an emoji standing in for photography.
+- **Twirl's 6 editorial stories** had zero imagery for 2 of 6 (`why-alkaline-noodles-behave-differently`, `rice-vs-wheat-noodles`) because they only referenced unphotographed `relatedNoodleTypeIds`. Added `relatedDishIds` pointing at the specific photographed dish each story is actually about — Lanzhou lamian (a real hand-pulled, kansui-treated noodle) for the alkaline story, and pho bo + lamian for the rice-vs-wheat pairing — rather than an unrelated stand-in. All 6 Twirl stories now carry real, accurate photography.
+
+Also added a `.photo-medium` CSS tier (16:9, between the small tile and full-bleed hero) and applied it once, to the Hand-Pulled Lab's header (the only lab with a matching photographed dish). The other 7 labs remain text-only — no fabricated imagery.
+
+Genuine remaining gap, unchanged: noodle-type and scene-level photography is still 0/25 and 0 respectively. Workshop labs beyond Hand-Pulled, Troubleshooter, Sommelier, and Curated Kitchen remain intentionally typographic since no licensed asset exists for those specific subjects yet.
