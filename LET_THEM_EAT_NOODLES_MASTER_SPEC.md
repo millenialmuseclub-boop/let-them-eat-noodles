@@ -1,6 +1,6 @@
 # LET THEM EAT NOODLES — MASTER SPEC
 
-Status: Phase 2 (content saturation + recovery/completion pass) implemented and QA'd, building on the Phase 1 foundation (commit `441881a`). All 51 canonical dishes are complete: recipe, noodle-type relationship, geography, Sommelier attributes, and now real verified photography (51/51, up from an honest 0/51 gap — see `PHOTOGRAPHY.md`). This document describes the actual current state, not aspirational scope. Phase 3 (deeper regional saturation toward the family's ~60-dish ceiling, noodle-type/scene photography, Apple release resources) has **not** been started.
+Status: Release-readiness pass complete, building on Phase 1 (`441881a`) and Phase 2 content/photography work (`d336b73`, `be04a64`). All 51 canonical dishes are complete: recipe, noodle-type relationship, geography, Sommelier attributes, and real verified photography (51/51 — see `PHOTOGRAPHY.md`). Both native platforms (`ios/`, `android/`) are generated, synced to the current build, and carry real app icon/splash artwork. This document describes the actual current state, not aspirational scope. See `NATIVE_SETUP.md` for the exact remaining release blockers (Apple Developer account resources, an Android signing keystore) — content and product work are considered done for this cycle; no further dish expansion or feature work is planned until those release blockers are cleared.
 
 ## Product Thesis
 
@@ -44,4 +44,4 @@ Per the master brief: no push past ~51 dishes toward the family's ~60-dish ceili
 
 ## Documents in This Set
 
-`README.md`, `NOODLE_DOMAIN_MODEL.md`, `FAMILY_ARCHITECTURE_REFERENCE.md`, `DESIGN_SYSTEM.md`, `CONTENT_PLAN.md`, `PHOTOGRAPHY.md`, `ACCESSIBILITY.md`, `COMMERCE_PLAN.md`, `NOODLES_COMMERCE_GAP_ANALYSIS.md`, `NATIVE_SETUP.md`.
+`README.md`, `NOODLE_DOMAIN_MODEL.md`, `FAMILY_ARCHITECTURE_REFERENCE.md`, `DESIGN_SYSTEM.md`, `CONTENT_PLAN.md`, `PHOTOGRAPHY.md`, `ACCESSIBILITY.md`, `COMMERCE_PLAN.md`, `NOODLES_COMMERCE_GAP_ANALYSIS.md`, `NATIVE_SETUP.md`, `APP_STORE_METADATA.md`, `APP_REVIEW_NOTES.md`, `GOOGLE_PLAY_METADATA.md`, `STORE_SCREENSHOT_PLAN.md`.
