@@ -16,5 +16,5 @@
 //    environment (no Xcode available here). See NATIVE_SETUP.md for the full walkthrough.
 CODE_SIGN_STYLE = Manual
 CODE_SIGN_IDENTITY = Apple Distribution
-DEVELOPMENT_TEAM = REPLACE_WITH_REAL_APPLE_TEAM_ID
+DEVELOPMENT_TEAM = J48FJJ3ABL
 PROVISIONING_PROFILE_SPECIFIER = Let Them Eat Noodles App Store
