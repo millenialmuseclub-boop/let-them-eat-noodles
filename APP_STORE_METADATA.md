@@ -9,19 +9,19 @@ Let Them Eat Noodles
 A World of Noodles
 
 ## Promotional Text (170 char max)
-51 noodle dishes from 8 countries — real recipes, a global atlas, a hands-on cooking studio, and a craving-matcher that actually explains its picks.
+A growing collection of noodle dishes from across Asia — real recipes, a global atlas, a hands-on cooking studio, and a craving-matcher that explains its picks.
 
 ## Description
 
 Let Them Eat Noodles is a global noodle encyclopedia, cultural atlas, kitchen studio, and personal cooking companion — for the noodle traditions of China, Vietnam, Thailand, the Philippines, Korea, Japan, Malaysia, Singapore, and Myanmar.
 
-Explore 51 canonical noodle dishes, each with real cultural and historical context, a structured recipe you can actually cook from, and honest photography (with a clear placeholder wherever a confident photo wasn't found — never a stock substitute).
+Explore a growing collection of canonical noodle dishes, each with real cultural and historical context, a structured recipe you can actually cook from, and honest photography (with a clear placeholder wherever a confident photo wasn't found — never a stock substitute).
 
 WHAT'S INSIDE
 
 • Encyclopedia — browse by region, preparation style, or noodle type, from hand-pulled Lanzhou lamian to Korean naengmyeon
 • Atlas — a global map of noodle traditions, region by region, country by country
-• Workshop — hands-on lessons on noodle-making technique, plus a troubleshooter for 16 common cooking problems
+• Workshop — hands-on lessons on noodle-making technique, plus a troubleshooter for common cooking problems
 • Sommelier — tell us what you're craving (brothy or dry, mild or spicy, delicate or bold) and get real dish matches with the reasons why
 • Twirl — the noodle culture magazine: vocabulary, technique stories, and the "why" behind the way noodles are made and eaten
 • My Noodles — a private, local list of noodles you want to try, have tried, and love — no account needed
