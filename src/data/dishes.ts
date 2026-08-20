@@ -1,0 +1,345 @@
+import type { NoodleDish } from '../types/noodle';
+
+export const dishes: NoodleDish[] = [
+  {
+    id: 'pho-bo',
+    name: 'Phở Bò',
+    localName: 'phở bò',
+    alternateNames: ['Beef Phở'],
+    noodleTypeId: 'banh-pho',
+    place: { regionId: 'southeast-asia', countryId: 'vietnam', cityOrAreaId: 'hanoi' },
+    preparationStyle: 'soup',
+    primaryTechniqueIds: ['stretched'],
+    culturalContext:
+      'Phở is eaten at any hour in Vietnam, from breakfast street stalls to late-night bowls, and is widely regarded as a defining dish of Vietnamese cuisine both at home and abroad.',
+    historicalContext:
+      'Phở is generally understood to have emerged in northern Vietnam in the early 20th century, likely in or near Hanoi, drawing on French cattle-butchering practices layered onto Vietnamese rice-noodle and broth traditions. Its exact origin is debated and this account favors the widely supported version rather than a single settled claim.',
+    flavorProfile: { brothiness: 5, boldness: 2, richness: 2, chewiness: 2, spice: 1 },
+    flavorTags: ['aromatic', 'savory', 'herbal', 'fresh'],
+    brothOrSauceRelationship:
+      'A clear, long-simmered beef bone broth perfumed with charred ginger, onion, star anise, and cinnamon, served hot over the noodles and finished tableside with herbs, lime, and chile.',
+    relatedDishIds: ['bun-cha'],
+    relatedNoodleTypeIds: ['rice-vermicelli'],
+    workshopLessonSlugs: ['broth-sauce-lab'],
+    recipeId: 'pho-bo',
+    sourceNote: 'General culinary-history consensus on phở\'s early-20th-century northern Vietnamese origins; no single primary source claimed.',
+  },
+  {
+    id: 'bun-cha',
+    name: 'Bún Chả',
+    localName: 'bún chả',
+    noodleTypeId: 'rice-vermicelli',
+    place: { regionId: 'southeast-asia', countryId: 'vietnam', cityOrAreaId: 'hanoi' },
+    preparationStyle: 'dressed',
+    primaryTechniqueIds: ['extruded'],
+    culturalContext:
+      'A Hanoi lunch-hour staple: grilled pork is brought to the table separately from the noodles and dipping sauce, and diners assemble each bite themselves.',
+    historicalContext:
+      'Rooted in northern Vietnamese home cooking, bún chả became closely associated with Hanoi street food through the 20th century and gained wider international attention in the 2010s.',
+    flavorProfile: { brothiness: 2, boldness: 3, richness: 3, chewiness: 1, spice: 1 },
+    flavorTags: ['savory', 'sweet', 'tangy', 'fresh', 'herbal'],
+    brothOrSauceRelationship:
+      'Room-temperature rice noodles are dipped, not sauced directly — into a bowl of warm nước chấm (fish sauce, sugar, lime, garlic, chile) along with grilled pork patties and slices, plus pickled vegetables.',
+    relatedDishIds: ['pho-bo'],
+    relatedNoodleTypeIds: ['banh-pho'],
+    recipeId: 'bun-cha',
+    sourceNote: 'Consistent with widely documented Hanoi bún chả preparation and serving conventions.',
+  },
+  {
+    id: 'lanzhou-lamian',
+    name: 'Lanzhou Lamian',
+    localName: '兰州拉面',
+    romanization: 'Lánzhōu lāmiàn',
+    alternateNames: ['Lanzhou Beef Noodle Soup'],
+    noodleTypeId: 'lamian',
+    place: { regionId: 'east-asia', countryId: 'china', cityOrAreaId: 'lanzhou' },
+    preparationStyle: 'soup',
+    primaryTechniqueIds: ['hand-pulled'],
+    culturalContext:
+      'A breakfast and all-day staple in Lanzhou, closely tied to the city\'s Hui Muslim community, and one of the most widely franchised regional Chinese noodle dishes nationally.',
+    historicalContext:
+      'The dish developed within Lanzhou\'s Hui Muslim beef-noodle tradition; a set of "five characteristics" (clear broth, white radish, red chile oil, green cilantro/garlic, yellow noodles) is commonly cited as its defining standard.',
+    flavorProfile: { brothiness: 5, boldness: 3, richness: 2, chewiness: 4, spice: 2 },
+    flavorTags: ['savory', 'aromatic', 'chili', 'herbal'],
+    brothOrSauceRelationship:
+      'A clear beef-bone broth seasoned simply, topped with chile oil, thinly sliced beef, radish, cilantro, and scallion; the broth is meant to stay clear despite its depth of flavor.',
+    relatedDishIds: ['biang-biang-mian'],
+    workshopLessonSlugs: ['hand-pulled-lab'],
+    recipeId: 'lanzhou-lamian',
+    sourceNote: 'Consistent with commonly cited Lanzhou Hui-community beef-noodle tradition and its "five characteristics" description.',
+  },
+  {
+    id: 'biang-biang-mian',
+    name: 'Biang Biang Mian',
+    localName: '油泼扯面',
+    romanization: 'yóupō chěmiàn',
+    noodleTypeId: 'biang-biang',
+    place: { regionId: 'east-asia', countryId: 'china', cityOrAreaId: 'xian' },
+    preparationStyle: 'dry-sauced',
+    primaryTechniqueIds: ['hand-torn'],
+    culturalContext:
+      'A Shaanxi home-style and street-food staple, named for the slapping sound the dough makes against the work surface while being stretched.',
+    historicalContext:
+      'Part of a broader Shaanxi tradition of wide, hand-made wheat noodles; the dish\'s modern name is closely tied to its unusually complex character, sometimes cited as one of the most stroke-heavy characters in written Chinese.',
+    flavorProfile: { brothiness: 0, boldness: 4, richness: 3, chewiness: 5, spice: 3 },
+    flavorTags: ['garlicky', 'chili', 'savory', 'aromatic'],
+    brothOrSauceRelationship:
+      'Hot oil is poured directly over chile flakes, garlic, and scallion piled on the noodles, sizzling them into a fragrant dressing tossed through at the table rather than a simmered sauce.',
+    relatedDishIds: ['lanzhou-lamian', 'dan-dan-mian'],
+    workshopLessonSlugs: ['shape-lab'],
+    recipeId: 'biang-biang-mian',
+    sourceNote: 'Consistent with widely documented Shaanxi biang biang mian preparation and naming.',
+  },
+  {
+    id: 'dan-dan-mian',
+    name: 'Dan Dan Mian',
+    localName: '担担面',
+    romanization: 'dàndàn miàn',
+    alternateNames: ['Dan Dan Noodles'],
+    noodleTypeId: 'shuimian',
+    place: { regionId: 'east-asia', countryId: 'china', cityOrAreaId: 'sichuan' },
+    preparationStyle: 'dry-sauced',
+    primaryTechniqueIds: ['knife-cut', 'rolled-and-cut'],
+    culturalContext:
+      'Named for the shoulder pole (dan dan) street vendors once used to carry the dish\'s ingredients, sold from two baskets balanced on the pole.',
+    historicalContext:
+      'Originated as Chengdu street food carried by traveling vendors in the early 20th century; restaurant versions today are often milder and saucier than the traditional small, intensely seasoned street portion.',
+    flavorProfile: { brothiness: 1, boldness: 4, richness: 3, chewiness: 3, spice: 4 },
+    flavorTags: ['chili', 'nutty', 'savory', 'aromatic'],
+    brothOrSauceRelationship:
+      'A small amount of noodles is tossed with chile oil, Sichuan peppercorn, preserved vegetable, and often ground pork and sesame or peanut, meant to coat rather than swim in sauce.',
+    relatedDishIds: ['biang-biang-mian'],
+    relatedNoodleTypeIds: ['chuka-soba'],
+    recipeId: 'dan-dan-mian',
+    sourceNote: 'Consistent with widely documented Chengdu street-vendor origin of dan dan mian.',
+  },
+  {
+    id: 'beef-chow-fun',
+    name: 'Beef Chow Fun',
+    localName: '干炒牛河',
+    romanization: 'gān chǎo niú hé',
+    noodleTypeId: 'shahe-fen',
+    place: { regionId: 'east-asia', countryId: 'china', cityOrAreaId: 'guangdong-hk' },
+    preparationStyle: 'stir-fried',
+    primaryTechniqueIds: ['stretched'],
+    culturalContext:
+      'A benchmark dish in Cantonese kitchens; how evenly a cook can char wide rice noodles without breaking or oiling them is considered a real test of wok skill.',
+    historicalContext:
+      'Developed within Guangdong wok cooking around the wide, steamed rice noodle known as ho fun, and carried into Hong Kong and overseas Cantonese restaurant cooking.',
+    flavorProfile: { brothiness: 0, boldness: 3, richness: 3, chewiness: 2, spice: 0 },
+    flavorTags: ['savory', 'smoky', 'aromatic'],
+    brothOrSauceRelationship:
+      'A thin dark and light soy sauce mixture is seared into the noodles over very high heat, meant to coat lightly and char at the edges rather than pool as a sauce.',
+    relatedDishIds: ['pancit-bihon'],
+    relatedNoodleTypeIds: ['banh-pho'],
+    workshopLessonSlugs: ['stir-fry-technique'],
+    recipeId: 'beef-chow-fun',
+    sourceNote: 'Consistent with standard Cantonese gon chow ngau ho preparation and wok-hei emphasis.',
+  },
+  {
+    id: 'pancit-bihon',
+    name: 'Pancit Bihon',
+    localName: 'pansit bihon',
+    noodleTypeId: 'rice-vermicelli',
+    place: { regionId: 'southeast-asia', countryId: 'philippines', cityOrAreaId: 'manila' },
+    preparationStyle: 'stir-fried',
+    primaryTechniqueIds: ['extruded'],
+    culturalContext:
+      'Pancit is served at Filipino birthdays and celebrations for its association with long life, and bihon is one of the most common everyday versions across the islands.',
+    historicalContext:
+      'The word pancit derives from Hokkien and reflects a long history of Chinese trading influence on Filipino noodle cooking, adapted over centuries with local vegetables, proteins, and calamansi.',
+    flavorProfile: { brothiness: 0, boldness: 2, richness: 2, chewiness: 1, spice: 0 },
+    flavorTags: ['savory', 'aromatic', 'citrus'],
+    brothOrSauceRelationship:
+      'Thin rice vermicelli is stir-fried with a light soy-and-broth seasoning, absorbing most of the liquid rather than sitting in a sauce, and finished with a squeeze of calamansi.',
+    relatedDishIds: ['beef-chow-fun', 'mohinga'],
+    relatedNoodleTypeIds: ['banh-pho'],
+    recipeId: 'pancit-bihon',
+    sourceNote: 'Consistent with widely documented Hokkien-influenced Filipino pancit history and bihon preparation.',
+  },
+  {
+    id: 'pad-thai',
+    name: 'Pad Thai',
+    localName: 'ผัดไทย',
+    noodleTypeId: 'sen-lek',
+    place: { regionId: 'southeast-asia', countryId: 'thailand', cityOrAreaId: 'bangkok' },
+    preparationStyle: 'stir-fried',
+    primaryTechniqueIds: ['extruded'],
+    culturalContext:
+      'Sold widely from street carts and restaurants alike, pad thai is one of the most internationally recognized Thai dishes and is commonly finished at the table with sugar, chile, fish sauce, and lime.',
+    historicalContext:
+      'Pad thai was actively promoted as a national dish by the Thai government in the late 1930s and 1940s as part of a campaign to build national identity and reduce rice consumption during a period of economic hardship.',
+    flavorProfile: { brothiness: 0, boldness: 3, richness: 2, chewiness: 2, spice: 1 },
+    flavorTags: ['tangy', 'sweet', 'savory', 'nutty'],
+    brothOrSauceRelationship:
+      'Flat rice noodles are stir-fried with a tamarind-fish sauce-palm sugar mixture that reduces into a light glaze, finished with egg, bean sprouts, and crushed peanuts.',
+    relatedDishIds: ['khao-soi'],
+    workshopLessonSlugs: ['stir-fry-technique'],
+    recipeId: 'pad-thai',
+    sourceNote: "Consistent with documented history of Thailand's mid-20th-century national pad thai promotion campaign.",
+  },
+  {
+    id: 'khao-soi',
+    name: 'Khao Soi',
+    localName: 'ข้าวซอย',
+    noodleTypeId: 'ba-mee',
+    place: { regionId: 'southeast-asia', countryId: 'thailand', cityOrAreaId: 'chiang-mai' },
+    preparationStyle: 'soup',
+    primaryTechniqueIds: ['rolled-and-cut'],
+    culturalContext:
+      'A defining dish of northern Thai (Lanna) cooking, closely associated with Chiang Mai and the broader region\'s overland trade connections into Myanmar and Yunnan.',
+    historicalContext:
+      'Khao soi reflects a blend of Chinese Muslim (Yunnanese) curry-noodle traditions carried along historic overland trade routes into northern Thailand, adapted with Thai curry paste and coconut milk.',
+    flavorProfile: { brothiness: 4, boldness: 4, richness: 4, chewiness: 2, spice: 3 },
+    flavorTags: ['aromatic', 'savory', 'chili', 'tangy'],
+    brothOrSauceRelationship:
+      'A coconut-milk curry broth built on a red curry paste base, poured over boiled egg noodles and topped with a portion of the same noodle deep-fried crisp for contrast.',
+    relatedDishIds: ['pad-thai', 'curry-laksa'],
+    recipeId: 'khao-soi',
+    sourceNote: 'Consistent with widely documented Yunnanese-influenced origin of northern Thai khao soi.',
+  },
+  {
+    id: 'sanuki-udon',
+    name: 'Sanuki Udon',
+    localName: '讃岐うどん',
+    noodleTypeId: 'udon',
+    place: { regionId: 'east-asia', countryId: 'japan', cityOrAreaId: 'kagawa' },
+    preparationStyle: 'soup',
+    primaryTechniqueIds: ['rolled-and-cut'],
+    culturalContext:
+      'Kagawa Prefecture (historically Sanuki Province) is popularly nicknamed "Udon Prefecture" for its density of udon shops and strong local identity around the noodle.',
+    historicalContext:
+      'Sanuki udon-making developed over centuries in a region well suited to wheat cultivation, salt production, and soy sauce brewing — the core inputs for a good udon and its dashi.',
+    flavorProfile: { brothiness: 3, boldness: 1, richness: 1, chewiness: 4, spice: 0 },
+    flavorTags: ['savory', 'aromatic', 'fresh'],
+    brothOrSauceRelationship:
+      'A light, clear dashi-based broth seasoned with soy sauce and mirin, meant to let the noodle\'s dense, springy texture stand out rather than dominate with a rich broth.',
+    relatedDishIds: ['zaru-soba'],
+    workshopLessonSlugs: ['dough-lab'],
+    recipeId: 'sanuki-udon',
+    sourceNote: "Consistent with Kagawa Prefecture's well-documented Sanuki udon tradition.",
+  },
+  {
+    id: 'zaru-soba',
+    name: 'Zaru Soba',
+    localName: 'ざるそば',
+    noodleTypeId: 'soba',
+    place: { regionId: 'east-asia', countryId: 'japan', cityOrAreaId: 'nagano' },
+    preparationStyle: 'chilled',
+    primaryTechniqueIds: ['shaved'],
+    culturalContext:
+      'A summer staple across Japan, served on a bamboo mat (zaru) to let excess water drain, and eaten by dipping rather than pouring sauce over.',
+    historicalContext:
+      'Cold soba service developed as buckwheat noodle-making spread from mountainous growing regions like Nagano into Edo-period (17th–19th century) urban dining culture.',
+    flavorProfile: { brothiness: 1, boldness: 1, richness: 1, chewiness: 3, spice: 0 },
+    flavorTags: ['nutty', 'savory', 'fresh'],
+    brothOrSauceRelationship:
+      'Chilled noodles are dipped bite by bite into a small cup of tsuyu (dashi, soy sauce, mirin), often finished with grated wasabi and scallion, rather than sauced directly.',
+    relatedDishIds: ['sanuki-udon', 'naengmyeon'],
+    recipeId: 'zaru-soba',
+    sourceNote: 'Consistent with widely documented Edo-period development of cold soba dining culture.',
+  },
+  {
+    id: 'yakisoba',
+    name: 'Yakisoba',
+    localName: '焼きそば',
+    noodleTypeId: 'chuka-soba',
+    place: { regionId: 'east-asia', countryId: 'japan', cityOrAreaId: 'osaka' },
+    preparationStyle: 'stir-fried',
+    primaryTechniqueIds: ['rolled-and-cut'],
+    culturalContext:
+      'A festival-stall and casual-dining staple in Japan, closely associated with summer matsuri food stands alongside takoyaki and okonomiyaki.',
+    historicalContext:
+      'Developed in the early-to-mid 20th century from Chinese-style stir-fried wheat noodles (chuka soba), adapted with a distinctly Japanese Worcestershire-style sauce.',
+    flavorProfile: { brothiness: 0, boldness: 3, richness: 2, chewiness: 2, spice: 0 },
+    flavorTags: ['savory', 'sweet', 'smoky'],
+    brothOrSauceRelationship:
+      'Noodles are stir-fried with cabbage, pork, and a tangy-sweet Worcestershire-style yakisoba sauce that reduces into a light coating, finished with pickled ginger and aonori.',
+    relatedDishIds: ['beef-chow-fun'],
+    workshopLessonSlugs: ['stir-fry-technique'],
+    recipeId: 'yakisoba',
+    sourceNote: 'Consistent with documented early-to-mid 20th century Japanese adaptation of Chinese stir-fried noodles.',
+  },
+  {
+    id: 'japchae',
+    name: 'Japchae',
+    localName: '잡채',
+    noodleTypeId: 'dangmyeon',
+    place: { regionId: 'east-asia', countryId: 'korea', cityOrAreaId: 'seoul' },
+    preparationStyle: 'dressed',
+    primaryTechniqueIds: ['extruded'],
+    culturalContext:
+      'A staple of Korean celebration tables — birthdays, holidays, weddings — often served at room temperature as part of a larger spread rather than as a standalone bowl.',
+    historicalContext:
+      'Japchae originated as a royal-court dish in the Joseon period built from julienned vegetables; the now-signature sweet-potato starch noodle was a later addition, popularized more widely in the 20th century.',
+    flavorProfile: { brothiness: 0, boldness: 2, richness: 2, chewiness: 4, spice: 0 },
+    flavorTags: ['sesame', 'savory', 'sweet', 'aromatic'],
+    brothOrSauceRelationship:
+      'Noodles and separately sautéed vegetables and beef are tossed together with soy sauce, sugar, and sesame oil off the heat, so each component keeps its own distinct texture.',
+    relatedDishIds: ['naengmyeon'],
+    recipeId: 'japchae',
+    sourceNote: 'Consistent with documented Joseon-era origin of japchae and later addition of dangmyeon noodles.',
+  },
+  {
+    id: 'naengmyeon',
+    name: 'Naengmyeon',
+    localName: '냉면',
+    noodleTypeId: 'naengmyeon-noodle',
+    place: { regionId: 'east-asia', countryId: 'korea', cityOrAreaId: 'pyongyang-tradition' },
+    preparationStyle: 'chilled',
+    primaryTechniqueIds: ['knife-cut'],
+    culturalContext:
+      'Traditionally a summer dish in South Korea, though historically associated with winter in its northern origins, when cold rooms and outdoor-stored kimchi liquid were more available.',
+    historicalContext:
+      'Naengmyeon traces to the historic Pyongyang region (in present-day North Korea) and was carried south and adapted by refugees and migrants through the 20th century, especially after the Korean War.',
+    flavorProfile: { brothiness: 4, boldness: 2, richness: 1, chewiness: 5, spice: 1 },
+    flavorTags: ['tangy', 'savory', 'fresh'],
+    brothOrSauceRelationship:
+      'Served either in a tart, icy beef-and-radish-kimchi broth (mul naengmyeon) or tossed in a sweet-spicy chile paste (bibim naengmyeon), both built to contrast the noodle\'s elastic bite.',
+    relatedDishIds: ['japchae', 'zaru-soba'],
+    recipeId: 'naengmyeon',
+    sourceNote: 'Consistent with documented Pyongyang-region origin of naengmyeon and its post-Korean-War spread south.',
+  },
+  {
+    id: 'curry-laksa',
+    name: 'Curry Laksa',
+    localName: 'laksa lemak',
+    noodleTypeId: 'laksa-noodle',
+    place: { regionId: 'southeast-asia', countryId: 'malaysia', cityOrAreaId: 'penang' },
+    preparationStyle: 'soup',
+    primaryTechniqueIds: ['extruded'],
+    culturalContext:
+      'A signature Peranakan (Straits Chinese) dish reflecting the blended Malay and Chinese culinary traditions of the Malay Peninsula and Singapore.',
+    historicalContext:
+      'Curry laksa developed within Peranakan communities as Chinese immigrant cooking traditions met Malay spice pastes and coconut milk over several centuries of trade and settlement on the Malay Peninsula.',
+    flavorProfile: { brothiness: 5, boldness: 4, richness: 4, chewiness: 2, spice: 3 },
+    flavorTags: ['aromatic', 'chili', 'savory', 'sweet'],
+    brothOrSauceRelationship:
+      'A rich coconut-milk broth built on a spice paste of chile, shallot, galangal, and shrimp paste, poured over thick rice noodles with tofu puffs, shrimp, and cockles.',
+    relatedDishIds: ['khao-soi'],
+    recipeId: 'curry-laksa',
+    sourceNote: 'Consistent with widely documented Peranakan origin of curry laksa on the Malay Peninsula.',
+  },
+  {
+    id: 'mohinga',
+    name: 'Mohinga',
+    localName: 'မုန့်ဟင်းခါး',
+    romanization: 'monhinga',
+    noodleTypeId: 'rice-vermicelli',
+    place: { regionId: 'southeast-asia', countryId: 'myanmar', cityOrAreaId: 'yangon' },
+    preparationStyle: 'soup',
+    primaryTechniqueIds: ['extruded'],
+    culturalContext:
+      "Widely considered Myanmar's national dish, eaten as a common breakfast across the country from street vendors and markets.",
+    historicalContext:
+      'Mohinga developed as a river-fish-based rice-noodle soup taking advantage of Myanmar\'s river systems (particularly catfish), with a base of aromatics and banana stem or lemongrass that varies significantly by region.',
+    flavorProfile: { brothiness: 5, boldness: 3, richness: 2, chewiness: 1, spice: 1 },
+    flavorTags: ['aromatic', 'savory', 'herbal', 'fresh'],
+    brothOrSauceRelationship:
+      'A fragrant river-fish and rice-flour-thickened broth, seasoned with lemongrass, ginger, and turmeric, poured over rice vermicelli and topped with crispy fritters, boiled egg, and cilantro.',
+    relatedDishIds: ['pancit-bihon', 'pho-bo'],
+    relatedNoodleTypeIds: ['banh-pho'],
+    recipeId: 'mohinga',
+    sourceNote: "Consistent with mohinga's widely documented status as Myanmar's national dish and its river-fish broth tradition.",
+  },
+];
