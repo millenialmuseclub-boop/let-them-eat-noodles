@@ -97,7 +97,7 @@ jobs:
             <key>method</key>
             <string>app-store</string>
             <key>teamID</key>
-            <string>REPLACE_WITH_REAL_APPLE_TEAM_ID</string>
+            <string>J48FJJ3ABL</string>
             <key>signingStyle</key>
             <string>manual</string>
             <key>provisioningProfiles</key>
