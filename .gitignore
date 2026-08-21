@@ -36,3 +36,8 @@ android/local.properties
 *.jks
 *.p12
 *.mobileprovision
+
+# Capgo OTA signing key — never commit; treat like any other private signing key
+.capgo_key_v2
+.capgo_key_v2.pub
+capgo_key_v2
