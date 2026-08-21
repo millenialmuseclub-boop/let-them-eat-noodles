@@ -15,9 +15,10 @@ minutes in App Store Connect / Play Console.
 - The family-wide visual refinement pass: enriched jade/lacquer/brass palette usage, homepage
   emoji-fallback fix, complete Twirl story photography (all 6 stories), medium photo tier,
   lighter Workshop rail (see git log for full detail).
-- iOS release secrets already set (Cloudflare, Capgo, App Store Connect, iOS distribution
-  cert/profile). **Android release secrets are NOT set** — see Known Gaps below, this was wrong
-  in an earlier draft of this doc.
+- All required secrets now set (Cloudflare, Capgo, App Store Connect, iOS distribution
+  cert/profile, Android release keystore) — Android was genuinely missing when an earlier draft
+  of this doc claimed otherwise; that's now fixed and verified end-to-end (a real signed `.aab`
+  was successfully built in CI against the actual keystore).
 
 ## Steps, in order
 
@@ -33,19 +34,20 @@ minutes in App Store Connect / Play Console.
    gh workflow run "Build, Sign, and Upload iOS Release Build"
    ```
 
-3. **Android is not ready yet** — `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`,
-   `ANDROID_KEY_ALIAS`, and `ANDROID_KEY_PASSWORD` are not set in this repo's secrets. Running
-   "Build Signed Android Release Bundle" right now will fail safe and produce an **unsigned**
-   bundle per the workflow's own comment, not something you can upload to Play Console. Generate
-   a release keystore first (see the workflow's header comment / `NATIVE_SETUP.md` for how), add
-   the four secrets, then this step becomes real. Until then, iOS is the only store this release
-   actually ships to.
+3. **Run the Android release workflow**: GitHub → Actions → "Build Signed Android Release
+   Bundle" → Run workflow.
+   ```bash
+   gh workflow run "Build Signed Android Release Bundle"
+   ```
+   Download the signed `.aab` artifact from the completed run and upload it manually to Play
+   Console — there's no automated Play Store publish step (unlike iOS's direct App Store Connect
+   upload).
 
 4. **Wait for the iOS build to finish processing** in App Store Connect (Activity tab) —
    typically 10–30 minutes after upload before it's selectable as "Ready to Submit."
 
-5. **Attach build 2 to the app version** in App Store Connect, paste the release notes below, and
-   submit for review. (Play Console submission waits on the Android keystore setup above.)
+5. **Attach build 2 to the app version** in App Store Connect and Play Console, paste the release
+   notes below, and submit for review on both.
 
 6. **Once build 2 is approved and live**, confirm OTA is actually reachable: the `production`
    manifest is already published (verified live during this pass), so any device running build 2
@@ -62,11 +64,14 @@ Feel free to shorten or restyle this — it's a starting draft, not final copy.
 
 ## Known gaps (not addressed in this pass)
 
-- **Android release keystore/secrets don't exist** — `android-release.yml` will produce an
-  unsigned bundle until `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`,
-  `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD` are generated and added as secrets.
-- Actual "Submit for Review" in App Store Connect is still a manual step — Apple's submission
-  flow (export compliance question, etc.) isn't automated here.
-- The stale `NOT YET USABLE AS-IS` warning comment at the top of `ios-release.yml` (from when
-  this app's iOS release secrets didn't exist yet) is now **outdated** for iOS — those secrets
-  are confirmed present. The equivalent comment on `android-release.yml` is still accurate.
+- Actual "Submit for Review" in App Store Connect and upload to Play Console are both still
+  manual steps — neither store's submission flow is automated here.
+- The stale `NOT YET USABLE AS-IS` warning comments at the top of `ios-release.yml` and
+  `android-release.yml` (from when this app's release secrets didn't exist yet) are now
+  **outdated** — all required secrets are confirmed present and the pipelines verified working.
+  Worth cleaning up those comments in a future pass so they don't mislead the next person reading
+  these workflows.
+- The release keystore (`.jks`, passwords, alias) was backed up and delivered to you directly as
+  a zip — store it somewhere durable (password manager/vault). It only exists as an opaque GitHub
+  secret otherwise, which works fine for CI builds but isn't human-recoverable if that secret is
+  ever accidentally overwritten.
